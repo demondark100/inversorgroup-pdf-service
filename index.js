@@ -62,7 +62,7 @@ app.post("/generar-pdf", async (req, res) => {
         const page = await browser.newPage();
 
         await page.setContent(html, {
-            waitUntil: "load",
+            waitUntil: "networkidle0",
         });
 
         const pdfBuffer = await page.pdf({
